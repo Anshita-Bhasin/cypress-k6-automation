@@ -1,4 +1,4 @@
-name: Add Action
+name: CHROME
 on:
   push:
     branches:
@@ -14,5 +14,6 @@ jobs:
       - name: Run Cypress Test
         uses: cypress-io/github-action@v6
         with:
-          command: npx cypress run
+          command: smoketest-withreport
           browser: chrome
+
