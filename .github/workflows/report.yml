@@ -16,4 +16,6 @@ jobs:
         with:
           command: npm run smoketest-withreport
           browser: chrome
-          
+
+      - name: reports
+        uses: actions/upload-artifact@v4
