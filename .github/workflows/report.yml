@@ -1,4 +1,4 @@
-name: Add Action
+name: Test with report
 on:
   push:
     branches:

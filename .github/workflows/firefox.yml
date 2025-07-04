@@ -1,4 +1,4 @@
-name: Add Action
+name: Firefox Action
 on:
   push:
     branches:
