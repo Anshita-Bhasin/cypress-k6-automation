@@ -27,9 +27,9 @@ jobs:
            name: cypress-screenshots
            path: ./cypress/screenshots
 
-      - name: fail reports
+      - name: pass reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
-           name: cypress-videos
-           path: ./cypress/videos
+           name: cypress-report
+           path: ./*/cypress-k6-automation/reports/*
