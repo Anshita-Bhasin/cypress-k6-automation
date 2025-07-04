@@ -19,3 +19,17 @@ jobs:
 
       - name: reports
         uses: actions/upload-artifact@v4
+
+      - name: fail reports
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+           name: cypress-screenshots
+           path: ./cypress/screenshots
+
+      - name: fail reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+           name: cypress-videos
+           path: ./cypress/videos
