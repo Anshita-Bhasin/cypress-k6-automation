@@ -11,7 +11,7 @@
     "test-critical": "npx cypress run -- env tags='critical'",
     "test-auth": "npx cypress run --env tags='auth'",
     "test:smoke-critical": "npx cypress run -e TAGS='@smoke and @critical'",
-    "smoke-test-browser-chrome":"npx cypress run -e TAGS='@smoke and @critical --browser chrome",
+    "smoke-test-browser-chrome":"npx cypress run -e TAGS='@smoke and @critical' --browser chrome",
 
     
     "test-login": "npx cypress run",
