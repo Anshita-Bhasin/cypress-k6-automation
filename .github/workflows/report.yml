@@ -17,19 +17,23 @@ jobs:
           command: npm run smoketest-withreport
           browser: chrome
 
-      - name: reports
+      - name: Cypress Test Report
         uses: actions/upload-artifact@v4
+        with:
+         name: Mochawesome HTML Report - Reg Flow
+         path: /reports/*     
 
       - name: fail reports
         uses: actions/upload-artifact@v4
         if: failure()
         with:
            name: cypress-screenshots
-           path: ./cypress/screenshots
+           path: /reports/*
+           run : echo ' test failed'
 
       - name: pass reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
            name: cypress-report
-           path: ./*/cypress-k6-automation/reports/*
+           run:  echo ' always run'
