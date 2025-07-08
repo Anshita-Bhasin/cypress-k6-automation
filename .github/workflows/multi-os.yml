@@ -1,0 +1,22 @@
+name: Multi OS
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Cypress-Test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run chrome-smoketest-withreport
+          browser: chrome
