@@ -1,11 +1,11 @@
-name: Test
+name: Parallel
 on:
   push:
     branches:
       - main
 
 jobs:
-  Cypress-Test:
+  SMoke-Test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout GitCode
@@ -17,3 +17,14 @@ jobs:
           command: npm run chrome-smoketest-withreport
           browser: chrome
 
+  Regression-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run regression-test
+          browser: firefox
