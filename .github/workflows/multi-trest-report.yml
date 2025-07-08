@@ -1,4 +1,4 @@
-name: Parallel
+name: Multi - test
 on:
   push:
     branches:
