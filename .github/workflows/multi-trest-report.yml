@@ -1,0 +1,41 @@
+name: Parallel
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  SMoke-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run chrome-smoketest-withreport
+          browser: chrome
+      - name: Cypress Test Report1
+        uses: actions/upload-artifact@v4
+        with:
+         name: HTML Report - Reg Flow
+         path: cypress/reports/*    
+
+  Regression-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run regression-test
+          browser: firefox
+
+      - name: Cypress Test Report2
+        uses: actions/upload-artifact@v4
+        with:
+         name: HTML Report - Reg Flow
+         path: cypress/reports/*        
