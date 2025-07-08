@@ -16,7 +16,7 @@ jobs:
           command: npm run chrome-smoketest-withreport
           browser: chrome
 
-  Regression-Test:
+  Regression-Test1:
     runs-on: ubuntu-latest
     needs: [Smoke-Test]
     steps:
@@ -27,3 +27,16 @@ jobs:
         with:
           command: npm run regression-test
           browser: firefox
+
+  Regression-Test3 :
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [Smoke-Test,Regression-Test1]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run regression-test
+          browser: firefox       
