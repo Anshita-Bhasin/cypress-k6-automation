@@ -35,8 +35,39 @@ jobs:
       - name: Cypress Test Report2
         uses: actions/upload-artifact@v4
         with:
-         name: HTML Report - Reg Flow
+         name: HTML Report - Reg Flow2
          path: cypress/reports/*        
        
 
-      
+  Sanity-Test-firefox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run smoketest-withreport
+
+      - name: Copy Chrome Reports to Combined Folder
+        run: |
+          mkdir -p combined-reports/chrome-smoke
+          cp -r cypress/reports/* combined-reports/chrome-smoke/ || true    
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run chrome-smoketest-withreport
+    
+      - name: Copy Firefox Reports to Combined Folder
+        run: |
+          mkdir -p combined-reports/firefox-smoke
+          cp -r cypress/reports/* combined-reports/firefox-smoke/ || true
+
+
+      - name: Upload Combined Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: Combined-Test-Reports
+          path: combined-reports/
