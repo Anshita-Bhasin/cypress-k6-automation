@@ -35,7 +35,7 @@ jobs:
       - name: Cypress Test Report2
         uses: actions/upload-artifact@v4
         with:
-         name: HTML Report - Reg Flow
+         name: HTML Report - Reg Flow2
          path: cypress/reports/*        
        
 
