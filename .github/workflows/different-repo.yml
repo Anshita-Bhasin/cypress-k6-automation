@@ -1,0 +1,17 @@
+name: CHROME
+on: [workflow_dispatch]
+
+jobs:
+  Cypress-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: https://github.com/Anshita-Bhasin/cypress-pom-bdd
+          command: npm run test:smoke-critical:firefox-browser
+          
+
