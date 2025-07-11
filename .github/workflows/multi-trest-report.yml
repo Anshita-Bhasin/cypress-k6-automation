@@ -15,7 +15,6 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           command: npm run chrome-smoketest-withreport
-          browser: chrome
       - name: Cypress Test Report1
         uses: actions/upload-artifact@v4
         with:
@@ -31,8 +30,7 @@ jobs:
       - name: Run Cypress Test
         uses: cypress-io/github-action@v6
         with:
-          command: npm run smoke-test-browser-ff
-          browser: firefox
+          command: npm run smoketest-withreport
 
       - name: Cypress Test Report2
         uses: actions/upload-artifact@v4
