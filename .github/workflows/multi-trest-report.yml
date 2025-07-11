@@ -22,7 +22,7 @@ jobs:
          name: HTML Report - Reg Flow
          path: cypress/reports/*    
 
-  Regression-Test:
+  Regression-Test-firefox:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout GitCode
@@ -31,7 +31,7 @@ jobs:
       - name: Run Cypress Test
         uses: cypress-io/github-action@v6
         with:
-          command: npm run regression-test
+          command: npm run smoke-test-browser-ff
           browser: firefox
 
       - name: Cypress Test Report2
