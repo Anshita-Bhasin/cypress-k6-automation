@@ -1,4 +1,4 @@
-name: CHROME
+name: Reusable Flow
 on: [workflow_dispatch]
 
 jobs:
