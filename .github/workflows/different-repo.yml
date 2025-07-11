@@ -8,7 +8,7 @@ jobs:
       - name: Checkout GitCode
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/Anshita-Bhasin/cypress-pom-bdd
+          repository: Anshita-Bhasin/cypress-pom-bdd
 
 
       - name: Run Cypress Test
