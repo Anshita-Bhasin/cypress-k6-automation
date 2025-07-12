@@ -1,0 +1,25 @@
+name: Reusable Flow
+on: [workflow_dispatch]
+
+jobs:
+  Cypress-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+        with:
+          repository: Anshita-Bhasin/cypress-pom-bdd
+
+
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run test:smoke-critical:firefox-browser
+          
+
+      - name: Slack Notifications
+        uses: act10ns/slack@v2
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          message: Test Report - https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html
