@@ -1,27 +1,30 @@
 pipeline {
-  agent any
-  stages {
-    stage('Install') {
-      steps {
-        sh 'npm ci'
-      }
+    agent any
+    tools {nodejs "Node"}
+    stages {
+        stage('Dependencies') {
+            steps {
+                sh 'npm i'
+            }
+        }
+        stage('e2e Tests') {
+            parallel {
+                stage('Test 1') {
+                    steps {
+                        sh 'npm run cypress:ci'
+                    }
+                }
+                stage('Test 2') {
+                    steps {
+                        sh 'npm run chrome-smoketest-withreport'
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        sh 'npx cypress run'
-      }
-    }
-    stage('Publish Report') {
-      steps {
-        publishHTML(target: [
-          allowMissing: false,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'mochawesome-report',
-          reportFiles: 'mochawesome.html',
-          reportName: 'Cypress Test Report'
-        ])
-      }
-    }
-  }
 }
