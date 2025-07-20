@@ -11,7 +11,7 @@ pipeline {
             parallel {
                 stage('Test 1') {
                     steps {
-                        sh 'npm run cypress:ci'
+                        sh 'npm run chrome-smoketest-withreport'
                     }
                 }
                 stage('Test 2') {
