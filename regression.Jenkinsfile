@@ -1,5 +1,6 @@
 pipeline {
     agent any
+  tools {nodejs "Node"}
 
     parameters {
         choice(
@@ -27,17 +28,17 @@ pipeline {
             parallel {
                 stage('Smoke Tests') {
                     steps {
-                        script {
+                       
                             sh 'npm run smoke-test-browser-chrome'
                         }
                     }
-                }
+                
 
                 stage('Regression Tests - Group 2') {
                     steps {
-                        script {
+                        
                             sh 'npm run regression-test'
-                        }
+                        
                     }
                 }
             }
