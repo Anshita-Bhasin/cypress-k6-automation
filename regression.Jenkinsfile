@@ -43,19 +43,7 @@ pipeline {
             }
         }
 
-        stage('Publish Reports') {
-            steps {
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'cypress/reports/html',
-                    reportFiles: 'index.html',
-                    reportName: 'Cypress Test Report'
-                ])
-                
-            }
-        }
+        
     }
 
    
