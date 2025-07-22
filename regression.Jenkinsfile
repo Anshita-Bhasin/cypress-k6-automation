@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'NodeJS-18' 
+    }
 
     parameters {
         choice(
@@ -15,6 +18,15 @@ pipeline {
     }
 
     stages {
+        
+
+stage('Verify Node Installation') {
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+            }}
+
+
         stage('Install Dependencies') {
             steps {
                 script {
