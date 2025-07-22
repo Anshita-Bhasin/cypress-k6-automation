@@ -1,6 +1,5 @@
 pipeline {
     agent any
-  tools {nodejs "Node"}
 
     parameters {
         choice(
@@ -19,7 +18,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'npm ci'
+                    sh 'npm install'
                 }
             }
         }
