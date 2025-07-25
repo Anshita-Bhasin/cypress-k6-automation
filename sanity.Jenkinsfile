@@ -16,7 +16,7 @@ pipeline {
                                 allowMissing: false,
                                 alwaysLinkToLastBuild: true,
                                 keepAll: true,
-                                reportDir: '/Users/anshita/.jenkins/workspace/cypress-24july01/reports/cucumber-htmlreport.html',
+                                reportDir: '/Users/anshita/.jenkins/workspace/cypress-24july01/cypress/reports/html',
                                 reportFiles: 'index.html',
                                 reportName: 'Cucumber HTML Report',
                                 reportTitles: ''
