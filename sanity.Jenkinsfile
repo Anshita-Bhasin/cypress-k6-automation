@@ -4,7 +4,7 @@ pipeline {
     stages {
        
         stage('e2e Tests') {
-               {
+               
                     steps {      
                        sh 'npm i'
                         sh 'npm run chrome-smoketest-withreport'
@@ -24,7 +24,7 @@ pipeline {
                             
                                }
                     }
-                }
+                
                
             }
         
