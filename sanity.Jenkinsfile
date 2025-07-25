@@ -2,14 +2,11 @@ pipeline {
     agent any
     tools {nodejs "Node"}
     stages {
-        stage('Dependencies') {
-            steps {
-                sh 'npm i'
-            }
-        }
+       
         stage('e2e Tests') {
                 stage('Test 1') {
-                    steps {
+                    steps {      
+                       sh 'npm i'
                         sh 'npm run chrome-smoketest-withreport'
                     }
                     post {
@@ -31,11 +28,6 @@ pipeline {
                
             }
         
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
     }
 
 }
