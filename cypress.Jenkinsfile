@@ -6,17 +6,17 @@ pipeline {
     }
 
     parameters {
-        choice(
-            name: 'Scripts', 
-            choices: ['smoketest-withreport', 'test-with-report'],
-            description: 'Choose Script to run'
-        )
-        choice(
-            name: 'Tag', 
-            choices: ['@smoke', '@regression', '@login'], 
-            description: 'Choose tag to run tests by'
-        )
-    }
+    choice(
+        name: 'Scripts', 
+        choices: ['smoketest-withreport', 'test-with-report'],
+        description: 'Choose Script to run'
+    )
+    choice(
+        name: 'Tag', 
+        choices: ['@smoke', '@regression', '@login'], 
+        description: 'Choose tag to run tests by'
+    )
+}
     
     stages {
         stage('Build - Install Dependencies') {
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo '*******Test Step - Cypress Test *******'
                 // sh 'npm run ${params.Scripts}'
-                 sh 'npx cypress run --env TAGS=${params.TAGS}'
+                 sh 'npx cypress run --env TAGS=${params.Tag}'
 
             }
         }
