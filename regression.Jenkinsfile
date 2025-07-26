@@ -9,17 +9,12 @@ pipeline {
         }
         stage('e2e Tests') {
                     steps {
-                        sh 'npm run smoke-test-browser-ff'
+                        sh 'npm run chrome-smoketest-withreport'
                     }
                
             
         }
-         stage('Debug Report Folder') {
-            steps {
-                sh 'find cypress/reports/html -type f'
-                sh 'cat cypress/reports/html/index.html | head -n 20 || echo "No index.html found"'
-            }
-        }
+       
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
