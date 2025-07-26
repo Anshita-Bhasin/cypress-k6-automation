@@ -34,7 +34,7 @@ pipeline {
                         }
                     }
 
-stage('HTML REPORT'){
+           stage('HTML REPORT'){
                         steps{
                               publishHTML([
                                 allowMissing: false,
