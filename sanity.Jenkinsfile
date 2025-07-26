@@ -9,22 +9,21 @@ pipeline {
                        sh 'npm i'
                         sh 'npm run chrome-smoketest-withreport'
                     }
-                    post {
-                        always {
-                            // Publish HTML report for Test 1
-                            publishHTML([
+
+                    stage('REPORT'){
+                        steps{
+                              publishHTML([
                                 allowMissing: false,
                                 alwaysLinkToLastBuild: true,
                                 keepAll: true,
-                                reportDir: 'reports',
+                                reportDir: 'cypress/reports/html',
                                 reportFiles: 'index.html',
-                                reportName: 'Cucumber HTML Report',
+                                reportName: 'Cypress HTML Report',
                                 reportTitles: ''
                             ])
-                            
-                               }
+                        }
                     }
-                
+                               
                
             }
         
