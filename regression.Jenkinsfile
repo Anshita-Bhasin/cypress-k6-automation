@@ -8,23 +8,31 @@ pipeline {
             }
         }
         stage('e2e Tests') {
-            parallel {
                 stage('Test 1') {
                     steps {
-                        sh 'npm run smoketest-withreport'
+                        sh 'npm run smoke-test-browser-ff'
                     }
                 }
-                stage('Test 2') {
-                    steps {
-                        sh 'npm run chrome-smoketest-withreport'
-                    }
-                }
-            }
+               
+            
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
         }
+         stage('REPORT'){
+                        steps{
+                              publishHTML([
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: false,
+                                reportDir: 'cypress/reports/html/',
+                               reportFiles: 'index.html',
+                                reportName: 'UI HTML Report',
+                                reportTitles: ''
+                            ])
+                        }
+                    }
     }
 }
