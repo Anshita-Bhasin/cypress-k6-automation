@@ -38,5 +38,20 @@ pipeline {
                             ])
                         }
                     }
+
+stage('HTML REPORT'){
+                        steps{
+                              publishHTML([
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: true,
+                                 reportDir: 'cypress/reports/cucumber-htmlreporter/',
+                               reportFiles: 'index.html',
+                                reportName: 'Cucumber HTML Report',
+                                reportTitles: ''
+                            ])
+                        }
+                    
+                    
     }
 }
