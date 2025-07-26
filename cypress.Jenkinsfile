@@ -11,6 +11,11 @@ pipeline {
             choices: ['smoketest-withreport', 'test-with-report'],
             description: 'Choose Script to run'
         )
+        choice(
+            name: 'Tag', 
+            choices: ['@smoke', '@regression', '@login'], 
+            description: 'Choose tag to run tests by'
+        )
     }
     
     stages {
@@ -24,7 +29,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo '*******Test Step - Cypress Test *******'
-                sh 'npm run ${params.Scripts}'
+                // sh 'npm run ${params.Scripts}'
+                 sh 'npx cypress run --env TAGS=${params.TAGS}'
+
             }
         }
         
@@ -37,9 +44,7 @@ pipeline {
                     keepAll: false, 
                     reportDir: 'cypress/reports/html/', 
                     reportFiles: 'index.html', 
-                    reportName: 'Cypress HTML Report', 
-                    reportTitles: '', 
-                    useWrapperFileDirectly: true
+                    reportName: 'Cypress HTML Report'
                 ])
             }
         }
@@ -53,9 +58,7 @@ pipeline {
                     keepAll: false, 
                     reportDir: 'cypress/reports/cucumber-htmlreport/', 
                     reportFiles: 'index.html', 
-                    reportName: 'Cucumber HTML Report', 
-                    reportTitles: '', 
-                    useWrapperFileDirectly: true
+                    reportName: 'Cucumber HTML Report'
                 ])
             }
         }

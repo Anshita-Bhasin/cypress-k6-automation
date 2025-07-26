@@ -24,7 +24,7 @@ module.exports = defineConfig({
 
     },
   },
-  // env: {
-  //   TAGS: '@smoke'
-  // }
+  env: {
+    TAGS: '@smoke'
+  }
 });
