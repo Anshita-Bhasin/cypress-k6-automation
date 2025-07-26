@@ -14,8 +14,8 @@ pipeline {
                         steps{
                               publishHTML([
                                 allowMissing: false,
-                                alwaysLinkToLastBuild: true,
-                                keepAll: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: false,
                                 reportDir: 'cypress/reports/html/',
                                 reportFiles: 'index.html',
                                 reportName: 'Cypress HTML Report',
