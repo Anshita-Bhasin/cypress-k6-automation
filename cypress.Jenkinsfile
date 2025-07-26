@@ -30,7 +30,8 @@ pipeline {
             steps {
                 echo '*******Test Step - Cypress Test *******'
                 // sh 'npm run ${params.Scripts}'
-                 sh 'npx cypress run --env TAGS=${params.Tag}'
+                 sh "npx cypress run --env TAGS=${params.Tag}"
+
 
             }
         }
