@@ -12,7 +12,7 @@
     "test:smoke-critical": "npx cypress run -e TAGS='@smoke and @critical'",
     "smoke-test-browser-chrome":"npx cypress run -e TAGS='@smoke and @critical' --browser chrome",
     "smoke-test-browser-ff":"npx cypress run -e TAGS='@smoke and @critical' --browser firefox",
-    "test":"npx cypress run --env TAGS=$TAGS"
+    "test":"npx cypress run --env TAGS=$TAGS --record --key 829fe9b6-dc58-4315-b924-7fcba54153d7"
 ,
 
     
@@ -25,6 +25,8 @@
     "smoketest-withreport": "npm run delete-reportFolder;npm run test:smoke-critical; npm run cucumber-report;npm run delete-existingJSON-report",
     "chrome-smoketest-withreport": "npm run delete-reportFolder;npm run smoke-test-browser-chrome; npm run cucumber-report;npm run delete-existingJSON-report",
     "test-with-report": "npm run delete-reportFolder;npm run test;npm run cucumber-report;npm run delete-existingJSON-report"
+
+ 
 
   },
   "author": "Anshita Bhasin", 

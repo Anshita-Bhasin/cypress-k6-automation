@@ -4,7 +4,7 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
-
+  projectId: "2zrsob",
   e2e: {
     baseUrl: "https://www.saucedemo.com/v1/",
     specPattern: 'cypress/e2e/features/**/*.feature',
