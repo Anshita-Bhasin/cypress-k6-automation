@@ -8,11 +8,9 @@ pipeline {
             }
         }
         stage('e2e Tests') {
-                stage('Test 1') {
                     steps {
                         sh 'npm run smoke-test-browser-ff'
                     }
-                }
                
             
         }
