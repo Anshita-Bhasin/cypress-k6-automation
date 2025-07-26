@@ -12,8 +12,9 @@
     "test-auth": "npx cypress run --env tags='auth'",
     "test:smoke-critical": "npx cypress run -e TAGS='@smoke and @critical'",
     "smoke-test-browser-chrome":"npx cypress run -e TAGS='@smoke and @critical' --browser chrome",
-
-        "smoke-test-browser-ff":"npx cypress run -e TAGS='@smoke and @critical' --browser firefox",
+    "smoke-test-browser-ff":"npx cypress run -e TAGS='@smoke and @critical' --browser firefox",
+    "test":"npx cypress run --env TAGS=$TAGS"
+,
 
     
     "test-login": "npx cypress run",
@@ -24,9 +25,8 @@
     "__________": " ------ Run Test with Report ___________",
     "smoketest-withreport": "npm run delete-reportFolder;npm run test:smoke-critical; npm run cucumber-report;npm run delete-existingJSON-report",
     "chrome-smoketest-withreport": "npm run delete-reportFolder;npm run smoke-test-browser-chrome; npm run cucumber-report;npm run delete-existingJSON-report",
+    "test-with-report": "npm run delete-reportFolder;npm run test; ;npm run delete-existingJSON-report"
 
-
-    "test-with-report": "npm run delete-reportFolder;npx cypress run; npm run cucumber-report"
   },
   "author": "Anshita Bhasin", 
   "license": "ISC",
