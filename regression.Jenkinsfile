@@ -55,3 +55,5 @@ stage('HTML REPORT'){
                     
     }
 }
+
+}
