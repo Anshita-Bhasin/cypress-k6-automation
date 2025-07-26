@@ -25,7 +25,7 @@
     "__________": " ------ Run Test with Report ___________",
     "smoketest-withreport": "npm run delete-reportFolder;npm run test:smoke-critical; npm run cucumber-report;npm run delete-existingJSON-report",
     "chrome-smoketest-withreport": "npm run delete-reportFolder;npm run smoke-test-browser-chrome; npm run cucumber-report;npm run delete-existingJSON-report",
-    "test-with-report": "npm run delete-reportFolder;npm run test; ;npm run delete-existingJSON-report"
+    "test-with-report": "npm run delete-reportFolder;npm run test;npm run delete-existingJSON-report"
 
   },
   "author": "Anshita Bhasin", 
