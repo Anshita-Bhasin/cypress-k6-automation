@@ -16,9 +16,9 @@ pipeline {
                                 allowMissing: false,
                                 alwaysLinkToLastBuild: false,
                                 keepAll: false,
-                                reportDir: 'cypress/reports/html/',
+                                reportDir: 'reports/cucumber-htmlreport.html'
                                 reportFiles: 'index.html',
-                                reportName: 'Cypress HTML Report',
+                                reportName: 'HTML Report',
                                 reportTitles: ''
                             ])
                         }
