@@ -14,6 +14,12 @@ pipeline {
                
             
         }
+         stage('Debug Report Folder') {
+            steps {
+                sh 'find cypress/reports/html -type f'
+                sh 'cat cypress/reports/html/index.html | head -n 20 || echo "No index.html found"'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
@@ -24,9 +30,9 @@ pipeline {
                               publishHTML([
                                 allowMissing: false,
                                 alwaysLinkToLastBuild: false,
-                                keepAll: false,
+                                keepAll: true,
                                 reportDir: 'cypress/reports/html/',
-                               reportFiles: 'index.html',
+                                reportFiles: 'index.html',
                                 reportName: 'UI HTML Report',
                                 reportTitles: ''
                             ])
