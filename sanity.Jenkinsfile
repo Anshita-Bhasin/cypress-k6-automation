@@ -8,7 +8,7 @@ pipeline {
                     steps {      
                        sh 'npm i'
                         sh 'npm run chrome-smoketest-withreport'
-                    }
+                    }}
 
                     stage('REPORT'){
                         steps{
@@ -29,4 +29,3 @@ pipeline {
         
     }
 
-}
