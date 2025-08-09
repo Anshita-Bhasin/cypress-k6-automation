@@ -1,0 +1,19 @@
+name: k6 Action
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Cypress-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v4
+
+      - name: Run k6 Test
+        uses: grafana/setup-k6-action@v1
+      - uses: grafana/run-k6-action@v1
+        with:
+          path: |
+            ./k6/8-post-dynamicdata.js
